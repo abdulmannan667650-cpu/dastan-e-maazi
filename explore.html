@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Archives | Dastan-e-Mazi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: { DEFAULT: '#F4F1EA', dark: '#E8E2D2' },
+                        charcoal: { light: '#333333', DEFAULT: '#1A1A1A', dark: '#0D0D0D' },
+                        gold: { light: '#D4B87D', DEFAULT: '#C5A059', dark: '#A6823F' },
+                        terracotta: '#C0533C',
+                        royal: '#1E3A5F',
+                        emerald: '#065F46',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .nav-link { @apply transition-all duration-300; }
+        .blog-card { @apply bg-white border border-gold/10 hover:border-gold/40 transition-all duration-500 hover:shadow-xl; }
+    </style>
+</head>
+<body class="bg-parchment text-charcoal leading-relaxed">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-parchment/95 backdrop-blur-xl border-b-2 border-gold/30 py-5 shadow-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-serif font-bold tracking-tighter flex items-center gap-2 group">
+                <span class="text-gold group-hover:text-gold-dark transition-colors">DASTAN-E</span> 
+                <span class="text-charcoal">MAZI</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent">Home</a>
+                <a href="explore.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-gold">Archives</a>
+                <a href="timeline.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent">Timeline</a>
+                <a href="about.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent">About</a>
+            </div>
+            <div class="relative group">
+                <input type="text" placeholder="Search archives..." class="bg-white/80 border border-gold/40 px-5 py-2.5 pl-12 rounded-sm focus:outline-none text-sm w-48 lg:w-72 shadow-inner">
+                <svg class="w-5 h-5 absolute left-4 top-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="py-20 bg-charcoal text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1457369804593-f77651be3d7b?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-5xl md:text-6xl mb-4">Historical Archives</h1>
+            <p class="text-parchment/60 text-xl max-w-2xl font-light">Explore a curated collection of journals, articles, and artifacts from the corridors of time.</p>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <section class="py-8 bg-white border-b border-gold/10">
+        <div class="container mx-auto px-6 flex flex-wrap gap-4 items-center">
+            <span class="text-sm font-bold uppercase tracking-widest text-gold mr-4">Filter By:</span>
+            <button class="px-6 py-2 bg-charcoal text-white text-sm rounded-full">All Topics</button>
+            <button class="px-6 py-2 border border-gold/30 hover:bg-gold/10 text-sm rounded-full transition-all">Warfare</button>
+            <button class="px-6 py-2 border border-gold/30 hover:bg-gold/10 text-sm rounded-full transition-all">Philosophy</button>
+            <button class="px-6 py-2 border border-gold/30 hover:bg-gold/10 text-sm rounded-full transition-all">Architecture</button>
+            <button class="px-6 py-2 border border-gold/30 hover:bg-gold/10 text-sm rounded-full transition-all">Culture</button>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <main class="container mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- Blog Item 1 -->
+            <article class="blog-card group">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1599147171736-22a76f28682a?auto=format&fit=crop&q=80&w=800" alt="Ancient Manuscripts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-4 left-4 bg-terracotta text-white px-3 py-1 text-xs font-bold uppercase tracking-widest">Ancient</div>
+                </div>
+                <div class="p-8">
+                    <span class="text-gold text-xs font-bold uppercase tracking-widest">March 12, 2026</span>
+                    <h2 class="text-2xl mt-3 mb-4 group-hover:text-gold transition-colors">The Library of Alexandria: Echoes of Wisdom</h2>
+                    <p class="text-charcoal-light text-sm mb-6 line-clamp-3 leading-relaxed">Discover the lost scrolls and the intellectual legacy of the ancient world's most famous repository of knowledge.</p>
+                    <a href="article.html" class="text-sm font-bold uppercase tracking-widest text-charcoal border-b-2 border-gold pb-1 hover:text-gold transition-all">Read Journal →</a>
+                </div>
+            </article>
+
+            <!-- Blog Item 2 -->
+            <article class="blog-card group">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?auto=format&fit=crop&q=80&w=800" alt="Castle Architecture" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-4 left-4 bg-royal text-white px-3 py-1 text-xs font-bold uppercase tracking-widest">Medieval</div>
+                </div>
+                <div class="p-8">
+                    <span class="text-gold text-xs font-bold uppercase tracking-widest">Feb 28, 2026</span>
+                    <h2 class="text-2xl mt-3 mb-4 group-hover:text-gold transition-colors">Chivalry and Steel: Life of the Knights</h2>
+                    <p class="text-charcoal-light text-sm mb-6 line-clamp-3 leading-relaxed">Beyond the myths of shining armor lies a complex world of feudal loyalty, bloody battles, and courtly romance.</p>
+                    <a href="article-knights.html" class="text-sm font-bold uppercase tracking-widest text-charcoal border-b-2 border-gold pb-1 hover:text-gold transition-all">Read Journal →</a>
+                </div>
+            </article>
+
+            <!-- Blog Item 3 -->
+            <article class="blog-card group">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Industrial Machinery" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-4 left-4 bg-emerald text-white px-3 py-1 text-xs font-bold uppercase tracking-widest">Modern</div>
+                </div>
+                <div class="p-8">
+                    <span class="text-gold text-xs font-bold uppercase tracking-widest">Jan 15, 2026</span>
+                    <h2 class="text-2xl mt-3 mb-4 group-hover:text-gold transition-colors">Smoke and Steel: The Industrial Spark</h2>
+                    <p class="text-charcoal-light text-sm mb-6 line-clamp-3 leading-relaxed">How a few steam engines in 18th-century England fundamentally altered the trajectory of human civilization forever.</p>
+                    <a href="article-industrial.html" class="text-sm font-bold uppercase tracking-widest text-charcoal border-b-2 border-gold pb-1 hover:text-gold transition-all">Read Journal →</a>
+                </div>
+            </article>
+
+            <!-- Blog Item 4 (Dummy) -->
+            <article class="blog-card group">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1541459403079-72121da05051?auto=format&fit=crop&q=80&w=800" alt="Silk Road" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-xs font-bold uppercase tracking-widest">Trade</div>
+                </div>
+                <div class="p-8">
+                    <span class="text-gold text-xs font-bold uppercase tracking-widest">Dec 20, 2025</span>
+                    <h2 class="text-2xl mt-3 mb-4 group-hover:text-gold transition-colors">Caravans of the Silk Road</h2>
+                    <p class="text-charcoal-light text-sm mb-6 line-clamp-3 leading-relaxed">Trading spices, silk, and ideas across vast deserts and towering mountains between East and West.</p>
+                    <a href="#" class="text-sm font-bold uppercase tracking-widest text-charcoal border-b-2 border-gold pb-1 hover:text-gold transition-all">Read Journal →</a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="mt-20 flex justify-center">
+            <button class="px-10 py-4 bg-charcoal text-gold font-bold uppercase tracking-widest hover:bg-charcoal-light transition-all border border-gold/20 shadow-xl">Load Older Journals</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-parchment pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <h2 class="text-4xl font-serif mb-8 text-gold tracking-tighter">DASTAN-E-MAZI</h2>
+                    <p class="text-parchment/70 max-w-md leading-loose text-lg">
+                        We are dedicated to preserving the echoes of history. From the ruins of ancient cities to the digital fingerprints of today, we tell the stories that shaped humanity.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-gold uppercase tracking-widest">Resources</h4>
+                    <ul class="space-y-4 text-parchment/60 text-lg">
+                        <li><a href="explore.html" class="hover:text-gold transition-colors">Historical Archives</a></li>
+                        <li><a href="timeline.html" class="hover:text-gold transition-colors">Interactive Timeline</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-gold uppercase tracking-widest">Newsletter</h4>
+                    <div class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 px-5 py-3 text-sm focus:outline-none focus:border-gold">
+                        <button class="bg-gold hover:bg-gold-dark px-6 py-3 text-charcoal font-bold transition-all">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-white/5 text-center">
+                <p class="text-parchment/30 text-sm italic">&copy; 2026 Dastan-e-Mazi Digital Museum. Preserving the Past for the Future.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
