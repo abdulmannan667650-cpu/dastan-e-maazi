@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dastan-e-Mazi | Digital Museum of Human History</title>
+    <meta name="description" content="Explore the vast corridors of time with Dastan-e-Mazi. A modern digital encyclopedia of world history, eras, and regions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: {
+                            DEFAULT: '#F4F1EA',
+                            dark: '#E8E2D2',
+                        },
+                        charcoal: {
+                            light: '#333333',
+                            DEFAULT: '#1A1A1A',
+                            dark: '#0D0D0D',
+                        },
+                        gold: {
+                            light: '#D4B87D',
+                            DEFAULT: '#C5A059',
+                            dark: '#A6823F',
+                        },
+                        burgundy: '#8B0000',
+                        terracotta: '#C0533C',
+                        olive: '#6B8E23',
+                        royal: '#1E3A5F',
+                        emerald: '#065F46',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="bg-parchment text-charcoal">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-parchment/95 backdrop-blur-xl border-b-2 border-gold/30 py-5 shadow-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-serif font-bold tracking-tighter flex items-center gap-2 group">
+                <span class="text-gold group-hover:text-gold-dark transition-colors">DASTAN-E</span> 
+                <span class="text-charcoal">MAZI</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-gold">Home</a>
+                <a href="explore.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent">Archives</a>
+                <a href="timeline.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent">Timeline</a>
+                <a href="about.html" class="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent">About</a>
+            </div>
+            <div class="relative group">
+                <input type="text" id="searchInput" placeholder="Search the past..." 
+                    class="bg-white/80 border border-gold/40 px-5 py-2.5 pl-12 rounded-sm focus:outline-none focus:ring-2 focus:ring-gold/30 text-sm w-48 lg:w-72 transition-all duration-300 focus:w-80 shadow-inner">
+                <svg class="w-5 h-5 absolute left-4 top-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[80vh] flex items-center justify-center overflow-hidden bg-charcoal">
+        <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-royal/60 via-charcoal/80 to-terracotta/40"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl text-white mb-6 animate-fade-in">Unlocking the <span class="text-gold italic">Corridors of Time</span></h1>
+            <p class="text-parchment/80 text-xl max-w-2xl mx-auto mb-10 font-light">
+                Explore the tapestry of human history through an immersive digital experience of archives, artifacts, and stories.
+            </p>
+            <div class="flex justify-center gap-4">
+                <button class="px-8 py-3 bg-gold text-white font-bold rounded-sm hover:bg-gold-dark transition-all shadow-[0_0_20px_rgba(197,160,89,0.3)]">Begin the Journey</button>
+                <button class="px-8 py-3 border border-gold text-gold font-bold rounded-sm hover:bg-gold/10 transition-all">Explore Archives</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Era Filtering Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl mb-2">Eras of Civilization</h2>
+                    <p class="text-charcoal-light">Filter history by chronological periods</p>
+                </div>
+                <div class="flex gap-2 mt-6 md:mt-0">
+                    <button onclick="filterEra('all')" class="era-btn active px-4 py-2 border-b-2 border-gold font-medium">All Periods</button>
+                    <button onclick="filterEra('ancient')" class="era-btn px-4 py-2 border-b-2 border-transparent hover:border-gold/50 transition-all">Ancient</button>
+                    <button onclick="filterEra('medieval')" class="era-btn px-4 py-2 border-b-2 border-transparent hover:border-gold/50 transition-all">Medieval</button>
+                    <button onclick="filterEra('renaissance')" class="era-btn px-4 py-2 border-b-2 border-transparent hover:border-gold/50 transition-all">Renaissance</button>
+                    <button onclick="filterEra('modern')" class="era-btn px-4 py-2 border-b-2 border-transparent hover:border-gold/50 transition-all">Modern</button>
+                </div>
+            </div>
+
+            <div id="eraGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Ancient Era - Terracotta -->
+                <div class="era-card group cursor-pointer overflow-hidden border-t-4 border-terracotta bg-terracotta/5" data-era="ancient">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544833058-e70f9ca25c17?auto=format&fit=crop&q=80&w=800" alt="Ancient Egyptian Relief" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-terracotta/20 group-hover:bg-terracotta/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6 border-b border-terracotta/20">
+                        <span class="text-terracotta text-xs font-bold uppercase tracking-widest">3000 BCE - 500 CE</span>
+                        <h3 class="text-2xl mt-1 text-terracotta">The Classical Age</h3>
+                        <p class="text-charcoal-light text-sm mt-3 line-clamp-2">Exploring the foundations of democracy, philosophy, and architectural marvels of Greece and Rome.</p>
+                    </div>
+                </div>
+
+                <!-- Medieval Era - Royal Blue -->
+                <div class="era-card group cursor-pointer overflow-hidden border-t-4 border-royal bg-royal/5" data-era="medieval">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?auto=format&fit=crop&q=80&w=800" alt="Medieval Gothic Cathedral" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-royal/20 group-hover:bg-royal/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6 border-b border-royal/20">
+                        <span class="text-royal text-xs font-bold uppercase tracking-widest">500 CE - 1450 CE</span>
+                        <h3 class="text-2xl mt-1 text-royal">The Middle Ages</h3>
+                        <p class="text-charcoal-light text-sm mt-3 line-clamp-2">A time of knights, towering cathedrals, and the expansion of trade routes across Eurasia.</p>
+                    </div>
+                </div>
+
+                <!-- Modern Era - Emerald -->
+                <div class="era-card group cursor-pointer overflow-hidden border-t-4 border-emerald bg-emerald/5" data-era="modern">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Vintage Steam Engine" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-emerald/20 group-hover:bg-emerald/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6 border-b border-emerald/20">
+                        <span class="text-emerald text-xs font-bold uppercase tracking-widest">1750 CE - Present</span>
+                        <h3 class="text-2xl mt-1 text-emerald">The Industrial Age</h3>
+                        <p class="text-charcoal-light text-sm mt-3 line-clamp-2">The rapid evolution of technology, global conflict, and the dawn of the digital era.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Preview -->
+    <section class="py-20 bg-parchment overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl text-center mb-16">Chronological Timeline</h2>
+            
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gold/30 transform -translate-x-1/2 hidden md:block"></div>
+                
+                <div class="space-y-12">
+                    <!-- Timeline Item Left -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-[45%] text-right hidden md:block">
+                            <h4 class="text-xl font-bold text-gold">1453 CE</h4>
+                            <p class="text-charcoal-light">The Fall of Constantinople</p>
+                        </div>
+                        <div class="w-4 h-4 bg-gold rounded-full z-10 border-4 border-parchment"></div>
+                        <div class="md:w-[45%] bg-white p-6 shadow-sm border-l-4 border-gold">
+                            <h4 class="text-xl font-bold md:hidden text-gold">1453 CE</h4>
+                            <h3 class="text-xl mb-2">End of the Middle Ages</h3>
+                            <p class="text-sm text-charcoal-light">The conquest of the Byzantine capital marked the end of the Roman empire and the beginning of the Renaissance.</p>
+                            <a href="#" class="text-gold text-sm font-bold uppercase tracking-wider hover:underline">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item Right -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center justify-between">
+                        <div class="md:w-[45%] text-left hidden md:block">
+                            <h4 class="text-xl font-bold text-gold">1789 CE</h4>
+                            <p class="text-charcoal-light">The French Revolution</p>
+                        </div>
+                        <div class="w-4 h-4 bg-gold rounded-full z-10 border-4 border-parchment"></div>
+                        <div class="md:w-[45%] bg-white p-6 shadow-sm border-r-4 border-gold">
+                            <h4 class="text-xl font-bold md:hidden text-gold">1789 CE</h4>
+                            <h3 class="text-xl mb-2">The Rise of Republics</h3>
+                            <p class="text-sm text-charcoal-light">A period of social and political upheaval in France and its colonies that changed the course of modern history.</p>
+                            <a href="#" class="text-gold text-sm font-bold uppercase tracking-wider hover:underline">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <button class="btn-gold">View Full Interactive Timeline</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-parchment pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <h2 class="text-4xl font-serif mb-8 text-gold tracking-tighter">DASTAN-E-MAZI</h2>
+                    <p class="text-parchment/70 max-w-md leading-loose text-lg">
+                        We are dedicated to preserving the echoes of history. From the ruins of ancient cities to the digital fingerprints of today, we tell the stories that shaped humanity.
+                    </p>
+                    <div class="flex gap-4 mt-8">
+                        <a href="#" class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-charcoal transition-all">FB</a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-charcoal transition-all">TW</a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-charcoal transition-all">IG</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-gold uppercase tracking-widest">Resources</h4>
+                    <ul class="space-y-4 text-parchment/60 text-lg">
+                        <li><a href="explore.html" class="hover:text-gold transition-colors">Historical Archives</a></li>
+                        <li><a href="timeline.html" class="hover:text-gold transition-colors">Interactive Timeline</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Research Papers</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Museum Virtual Tours</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-gold uppercase tracking-widest">Newsletter</h4>
+                    <p class="text-sm text-parchment/50 mb-6 leading-relaxed">Join our weekly digest of historical insights and recent discoveries.</p>
+                    <div class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 px-5 py-3 text-sm focus:outline-none focus:border-gold transition-colors">
+                        <button class="bg-gold hover:bg-gold-dark px-6 py-3 text-charcoal font-bold transition-all">Subscribe Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-white/5 text-center flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-parchment/30 text-sm italic">&copy; 2026 Dastan-e-Mazi Digital Museum. Preserving the Past for the Future.</p>
+                <div class="flex gap-8 text-xs text-parchment/30 uppercase tracking-widest">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Terms of Service</a>
+                    <a href="#" class="hover:text-gold">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
